@@ -1,0 +1,86 @@
+{
+  "name": "hfill",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Use custom heading elements (<h>)",
+  "author": "Jonathan Neal <jonathantneal@hotmail.com>",
+  "license": "CC0-1.0",
+  "repository": "jonathantneal/hfill",
+  "homepage": "https://github.com/jonathantneal/hfill#readme",
+  "bugs": "https://github.com/jonathantneal/hfill/issues",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "index.es5.js",
+    "src"
+  ],
+  "scripts": {
+    "lint": "npm run lint:ec && npm run lint:js",
+    "lint:ec": "echint",
+    "lint:js": "eslint *.js --cache --ignore-pattern .gitignore",
+    "pre-commit": "echo 'Running pre-commit checks...' && exit 0",
+    "publish:js": "babel index.js --out-file index.es5.js",
+    "prepublish": "npm test",
+    "tape": "postcss-tape",
+    "test": "npm run lint && postcss-tape"
+  },
+  "engines": {
+    "node": ">=6.5.0"
+  },
+  "dependencies": {
+    "postcss": "^5.2.11"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-plugin-iife-wrap": "^1.1.0",
+    "babel-preset-env": "^1.1.8",
+    "echint": "^2.1.1",
+    "echint-config-dev": "1.0.0",
+    "eslint": "^3.14.0",
+    "eslint-config-dev": "1.0.0",
+    "postcss-tape": "1.3.0",
+    "pre-commit": "^1.2.2",
+    "rollup": "^0.41.4"
+  },
+  "babel": {
+    "plugins": [
+      "iffe-wrap"
+    ],
+    "presets": [
+      "env"
+    ]
+  },
+  "browsers": [
+    "last 2 versions"
+  ],
+  "echint": {
+    "extends": "dev"
+  },
+  "eslintConfig": {
+    "extends": "dev",
+    "rules": {
+      "no-nested-ternary": [
+        0
+      ]
+    }
+  },
+  "pre-commit": [
+    "pre-commit",
+    "lint"
+  ],
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "h",
+    "heading",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "h7",
+    "element"
+  ]
+}

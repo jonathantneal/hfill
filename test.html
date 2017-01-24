@@ -1,0 +1,57 @@
+<!doctype html>
+<script src="index.js"></script>
+<style>
+
+/* Polyfill <h> style */
+
+h { display: block; }
+
+/* Testing */
+
+h { font-size: 1rem; }
+h::after { content: " Level " attr(aria-level); }
+
+p { color: #555555; margin: 0; }
+
+article, aside, body, nav, section { border: .125em dashed #08a6d1; margin: 1em; padding: .75em 1em; position: relative; }
+article::before, aside::before, body::before, nav::before, section::before { background-color: #08a6d1; color: #ffffff; content: "Sectioning Element"; font-size:75%; display: inline-block; left: -1em; padding: .25em .5em; position: absolute; top: -1.125em; }
+
+body { font: 87.5%/1.5 sans-serif; }
+
+</style>
+<body>
+
+<h>Heading</h>
+<p>Content...</p>
+<section>
+	<h>Heading</h>
+	<p>Content...</p>
+	<section id="x">
+		<h>X Heading</h>
+		<p>Content...</p>
+		<section>
+			<h>Heading</h>
+			<p>Content...</p>
+			<section>
+				<h>Heading</h>
+				<p>Content...</p>
+				<article id="y">
+					<h>Y Heading</h>
+					<p>Content...</p>
+					<aside>
+						<h>Heading</h>
+						<p>Content...</p>
+					</aside>
+				</article>
+			</section>
+		</section>
+	</section>
+</section>
+<section>
+	<h>Heading</h>
+	<p>Content...</p>
+</section>
+
+<button onclick="var x = document.getElementById('x'); x.parentNode.insertBefore(document.getElementById('y'), x); this.remove();">Move Y Section before X Section</button>
+
+</body>
