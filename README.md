@@ -19,10 +19,10 @@
 
 <!-- after -->
 
-<h aria-level="1">Heading</h>
+<h role="heading" aria-level="1">Heading</h>
 
 <section>
-	<h aria-level="2">Heading</h>
+	<h role="heading" aria-level="2">Heading</h>
 </section>
 ```
 
