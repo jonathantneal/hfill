@@ -1,4 +1,4 @@
-// observe document for heading tags, assign appropriate role, aria-level
+// assign appropriate role & aria-level to contextual headings
 export default (document = window.document, tag = 'x-h') => {
 	// sectioning tags matcher
 	const sectioningTag = /^(article|aside|nav|section)$/i;
@@ -40,7 +40,7 @@ export default (document = window.document, tag = 'x-h') => {
 	).reduce(
 		(nodes, node) => nodes.concat.apply(
 			nodes,
-			headingTag.test(node) ? node :
+			headingTag.test(node) ? node : // eslint-disable-line no-nested-ternary
 			node.getElementsByTagName ? node.getElementsByTagName(tag) : []
 		),
 		[]

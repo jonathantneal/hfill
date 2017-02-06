@@ -2,7 +2,7 @@
   "name": "hfill",
   "version": "1.0.0",
   "private": true,
-  "description": "Use custom heading elements (<h>)",
+  "description": "Use contextual headings in HTML",
   "author": "Jonathan Neal <jonathantneal@hotmail.com>",
   "license": "CC0-1.0",
   "repository": "jonathantneal/hfill",
@@ -55,21 +55,18 @@
     "extends": "dev"
   },
   "eslintConfig": {
-    "extends": "dev",
-    "rules": {
-      "no-nested-ternary": [
-        0
-      ]
-    }
+    "extends": "dev"
   },
   "pre-commit": [
     "pre-commit",
     "test"
   ],
   "keywords": [
-    "postcss",
-    "css",
-    "postcss-plugin",
+    "html",
+    "contextual",
+    "outline",
+    "aware",
+    "custom",
     "h",
     "heading",
     "h1",

@@ -1,4 +1,4 @@
-// include document styles for custom headings within sectioning elements
+// insert document styles for contextual headings within sectioning elements
 export default (document = window.document, tag = 'x-h', sizes = [2, 1.5, 1.17, 1, 0.83, 0.67]) => {
 	const sections = ['article', 'aside', 'nav', 'section'];
 	const length = 4;
