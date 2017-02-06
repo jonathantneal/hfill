@@ -66,7 +66,7 @@ Use the `style` method to include a document stylesheet for contextual headings 
 hfill.style(
   document, // document
   'x-h', // heading tag
-  [2, 1.5, 1.17, 1, .83, .67] // heading font sizes
+  ['2em', '1.5em', '1.17em', '1em', '.83em', '.67em'] // heading font sizes
 );
 ```
 
@@ -102,17 +102,9 @@ style(document, tag, sizes)
 
 Inserts a document stylesheet for contextual headings within sectioning elements.
 
-```js
-hfill.style(
-  document, // document
-  'x-h', // heading tag
-  [2, 1.5, 1.17, 1, .83, .67] // heading font sizes
-);
-```
-
 - `document`: target document (default is `window.document`).
 - `tag`: contextual heading tag (default is `x-h`).
-- `styles`: font sizes per sectioning depth (default is `[2, 1.5, 1.17, 1, .83, .67]`).
+- `styles`: font sizes per sectioning depth (default is `['2em', '1.5em', '1.17em', '1em', '.83em', '.67em']`).
 
 [npm-url]: https://www.npmjs.com/package/hfill
 [npm-img]: https://img.shields.io/npm/v/hfill.svg

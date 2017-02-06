@@ -1,5 +1,5 @@
 // insert document styles for contextual headings within sectioning elements
-export default (document = window.document, tag = 'x-h', sizes = [2, 1.5, 1.17, 1, 0.83, 0.67]) => {
+export default (document = window.document, tag = 'x-h', sizes = ['2em', '1.5em', '1.17em', '1em', '.83em', '.67em']) => {
 	const sections = ['article', 'aside', 'nav', 'section'];
 	const length = 4;
 	const list   = [[tag], [], [], [], [], []];
@@ -25,7 +25,7 @@ export default (document = window.document, tag = 'x-h', sizes = [2, 1.5, 1.17, 
 	}
 
 	const cssText = list.reduce(
-		(last, each, index) => `${last}${each.join(',')}{font-size:${sizes[index]}em}`,
+		(last, each, index) => `${last}${each.join(',')}{font-size:${sizes[index]}}`,
 		''
 	);
 
