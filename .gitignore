@@ -1,4 +1,10 @@
 node_modules
-*.*cache*
+
+.*
+!.editorconfig
+!.config.js
+!.rollup.js
+!.travis.js
 *.log*
-index.es5.js
+
+index.es5.js*

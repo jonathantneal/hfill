@@ -1,4 +1,4 @@
-# Contributing to `<h>`
+# Contributing to hfill
 
 You want to help? You rock! Now, take a moment to be sure your contributions
 make sense to everyone else.
@@ -20,11 +20,11 @@ scope, and do avoid unrelated commits.
 1. To begin, [fork this project], clone your fork, and add our upstream.
 	```bash
 	# Clone your fork of the repo into the current directory
-	git clone https://github.com/<your-user>/h-element
+	git clone https://github.com/<your-user>/hfill
 	# Navigate to the newly cloned directory
-	cd h-element
+	cd hfill
 	# Assign the original repo to a remote called "upstream"
-	git remote add upstream https://github.com/jonathantneal/h-element
+	git remote add upstream https://github.com/jonathantneal/hfill
 	# Install the tools necessary for development
 	npm install
 	```

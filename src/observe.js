@@ -1,4 +1,5 @@
-export default function (document, tag) {
+// observe document for heading tags, assign appropriate role, aria-level
+export default (document = window.document, tag = 'x-h') => {
 	// sectioning tags matcher
 	const sectioningTag = /^(article|aside|nav|section)$/i;
 

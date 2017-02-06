@@ -1,4 +1,5 @@
-export default function (document, tag, sizes = [2, 1.5, 1.17, 1, 0.83, 0.67]) {
+// include document styles for custom headings within sectioning elements
+export default (document = window.document, tag = 'x-h', sizes = [2, 1.5, 1.17, 1, 0.83, 0.67]) => {
 	const sections = ['article', 'aside', 'nav', 'section'];
 	const length = 4;
 	const list   = [[tag], [], [], [], [], []];
@@ -28,10 +29,10 @@ export default function (document, tag, sizes = [2, 1.5, 1.17, 1, 0.83, 0.67]) {
 		''
 	);
 
-	document.createElement('style');
-
-	const p = document.createElement('p'),
+	const p = document.createElement('p');
 	const parent = document.getElementsByTagName('head')[0];
 
 	p.innerHTML = `x<style>${cssText}</style>`;
+
+	parent.insertBefore(p.lastChild, parent.firstChild);
 }
