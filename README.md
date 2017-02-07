@@ -6,42 +6,52 @@
 [![Changelog][log-img]][log-url]
 [![Gitter Chat][git-img]][git-url]
 
-[hfill] lets you use contextual headings in HTML, like the [proposed `<h>` element].
+[hfill] lets you use contextual headings in HTML, following the [h element specification].
 
 ```html
 <!-- before -->
-
-<x-h>Heading</x-h>
-<p>Content...</p>
+<body>
+<x-h>This is a top level heading</x-h>
+<p>....</p>
 <section>
-  <x-h>Heading</x-h>
-  <p>Content...</p>
+  <p>....</p>
+  <x-h>This is a second-level heading</x-h>
+  <p>....</p>
+  <x-h>This is another second-level heading</x-h>
+  <p>....</p>
+</section>
+<section>
+  <p>....</p>
+  <x-h>This is another second-level heading</x-h>
+  <p>....</p>
   <section>
-    <x-h>X Heading</x-h>
-    <p>Content...</p>
+    <x-h>This is a third-level heading</x-h>
+    <p>....</p>
   </section>
 </section>
-<section>
-  <x-h>Heading</x-h>
-  <p>Content...</p>
-</section>
+</body>
 
 <!-- after -->
-
-<x-h role="heading" aria-level="1">Heading</x-h>
-<p>Content...</p>
+<body>
+<x-h role="heading" aria-level="1">This is a top level heading</x-h>
+<p>....</p>
 <section>
-  <x-h role="heading" aria-level="2">Heading</x-h>
-  <p>Content...</p>
+  <p>....</p>
+  <x-h role="heading" aria-level="2">This is a second-level heading</x-h>
+  <p>....</p>
+  <x-h role="heading" aria-level="2">This is another second-level heading</x-h>
+  <p>....</p>
+</section>
+<section>
+  <p>....</p>
+  <x-h role="heading" aria-level="2">This is another second-level heading</x-h>
+  <p>....</p>
   <section>
-    <x-h role="heading" aria-level="3">X Heading</x-h>
-    <p>Content...</p>
+    <x-h role="heading" aria-level="3">This is a third-level heading</x-h>
+    <p>....</p>
   </section>
 </section>
-<section>
-  <x-h role="heading" aria-level="2">Heading</x-h>
-  <p>Content...</p>
-</section>
+</body>
 ```
 
 Play with [hfill] in your browser right now at [CodePen].
@@ -122,6 +132,6 @@ Inserts a document stylesheet for contextual headings within sectioning elements
 [git-img]: https://img.shields.io/badge/chat-gitter-blue.svg
 
 [CodePen]: http://codepen.io/jonneal/pen/wgombw
+[h element specification]: https://jonathantneal.github.io/h-element-spec/
 [hfill]: https://github.com/jonathantneal/hfill
 [posthtml-hfill]: https://github.com/jonathantneal/posthtml-hfill
-[proposed `<h>` element]: https://github.com/w3c/html/issues/774
