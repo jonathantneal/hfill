@@ -19,7 +19,8 @@ export default {
 					}
 				]
 			]
-		})
+		}),
+		require('rollup-plugin-uglify')()
 	]
 };
 

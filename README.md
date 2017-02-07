@@ -44,6 +44,8 @@
 </section>
 ```
 
+Play with [hfill] in your browser right now at [CodePen].
+
 The default `<x-h>` element is used to prevent stomping on the native namespace. This library is intended to produce contextual headings in JavaScript experiences. For JavaScript-free usage that may also improve seach engine crawling, see [posthtml-hfill].
 
 ## Usage
@@ -79,7 +81,7 @@ hfill.observe(
 );
 ```
 
-You may choose to use a different heading tag while we wait for the [proposed `<h>` element]. Alternative suggestions include `html-h`, `x-heading`, or `contextual-heading`.
+You may choose to use a different heading tag while we wait for the [proposed `<h>` element]. Alternative suggestions include `html-h`, `x-heading`, or `contextual-heading`. The entire script, including the observer and customizable styles is 731 bytes.
 
 ## API
 
@@ -91,8 +93,8 @@ observe(document, tag)
 
 Watches the document for contextual headings and assigns them the appropriate `role` and `aria-level`.
 
-- `document`: target document (default is `window.document`).
-- `tag`: contextual heading tag (default is `x-h`).
+- `document`: document being observed (default is `window.document`).
+- `tag`: tag used by contextual headings (default is `x-h`).
 
 ### style
 
@@ -102,9 +104,11 @@ style(document, tag, sizes)
 
 Inserts a document stylesheet for contextual headings within sectioning elements.
 
-- `document`: target document (default is `window.document`).
-- `tag`: contextual heading tag (default is `x-h`).
-- `styles`: font sizes per sectioning depth (default is `['2em', '1.5em', '1.17em', '1em', '.83em', '.67em']`).
+- `document`: document being styled (default is `window.document`).
+- `tag`: tag used by contextual headings (default is `x-h`).
+- `styles`: font sizes given to headings by depth (default is `['2em', '1.5em', '1.17em', '1em']`).
+
+---
 
 [npm-url]: https://www.npmjs.com/package/hfill
 [npm-img]: https://img.shields.io/npm/v/hfill.svg
@@ -117,6 +121,7 @@ Inserts a document stylesheet for contextual headings within sectioning elements
 [git-url]: https://gitter.im/postcss/postcss
 [git-img]: https://img.shields.io/badge/chat-gitter-blue.svg
 
+[CodePen]: http://codepen.io/jonneal/pen/wgombw
 [hfill]: https://github.com/jonathantneal/hfill
 [posthtml-hfill]: https://github.com/jonathantneal/posthtml-hfill
 [proposed `<h>` element]: https://github.com/w3c/html/issues/774

@@ -1,38 +1,44 @@
+const sections = ['article', 'aside', 'nav', 'section'];
+const sectionsLength = sections.length;
+
 // insert document styles for contextual headings within sectioning elements
-export default (document = window.document, tag = 'x-h', sizes = ['2em', '1.5em', '1.17em', '1em', '.83em', '.67em']) => {
-	const sections = ['article', 'aside', 'nav', 'section'];
-	const length = 4;
-	const list   = [[tag], [], [], [], [], []];
-
-	let a = -1; while (++a < length) {
-		list[1].push(`${sections[a]} ${tag}`);
-
-		let b = -1; while (++b < length) {
-			list[2].push(`${sections[a]} ${sections[b]} ${tag}`);
-
-			let c = -1; while (++c < length) {
-				list[3].push(`${sections[a]} ${sections[b]} ${sections[c]} ${tag}`);
-
-				let d = -1; while (++d < length) {
-					list[4].push(`${sections[a]} ${sections[b]} ${sections[c]} ${sections[d]} ${tag}`);
-
-					let e = -1; while (++e < length) {
-						list[5].push(`${sections[a]} ${sections[b]} ${sections[c]} ${sections[d]} ${sections[e]} ${tag}`);
-					}
-				}
-			}
-		}
-	}
-
-	const cssText = list.reduce(
-		(last, each, index) => `${last}${each.join(',')}{font-size:${sizes[index]}}`,
-		''
-	);
-
+export default (
+	document = window.document,
+	tag = 'x-h',
+	sizes = ['2em', '1.5em', '1.17em', '1em', '.83em', '.67em']
+) => {
 	const p = document.createElement('p');
 	const parent = document.getElementsByTagName('head')[0];
 
-	p.innerHTML = `x<style>${cssText}</style>`;
+	const cssText = sizes.reduce(
+		(rules, value, size) => {
+			const total = Math.pow(sectionsLength, size);
+			const result = [];
+
+			for (let i = -1; ++i < total;) {
+				const combo = [];
+
+				for (let ii = i, j = -1; ++j < size;) {
+					let modulus = ii % sectionsLength;
+
+					combo.push(sections[modulus]);
+
+					ii = (ii - modulus) / sectionsLength;
+				}
+
+				result.push(combo);
+			}
+
+			return `${ rules + result.map(
+				(x) => x.length ? x.join(' ').concat(` ${ tag }`) : tag
+			).join(',') }{font-size:${ sizes[size] }}`;
+		},
+		''
+	);
+
+	p.innerHTML = `x<style>${ tag }{display:block}${ cssText }</style>`;
 
 	parent.insertBefore(p.lastChild, parent.firstChild);
 }
+
+

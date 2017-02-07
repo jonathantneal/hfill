@@ -1,10 +1,10 @@
 // assign appropriate role & aria-level to contextual headings
 export default (document = window.document, tag = 'x-h') => {
 	// sectioning tags matcher
-	const sectioningTag = /^(article|aside|nav|section)$/i;
+	const sectionMatch = /^(article|aside|nav|section)$/i;
 
 	// heading tag matcher
-	const headingTag = new RegExp(`^${tag}`, 'i');
+	const headingMatch = new RegExp(`^${tag}$`, 'i');
 
 	// assign heading by outline depth
 	const assignHeadingByElement = (element) => {
@@ -15,9 +15,9 @@ export default (document = window.document, tag = 'x-h') => {
 		let ascend = element;
 
 		while (ascend = ascend.parentElement) {
-			if (sectioningTag.test(ascend.nodeName)) {
+			if (sectionMatch.test(ascend.nodeName)) {
 				++level;
-			} else if (headingTag.test(ascend.nodeName)) {
+			} else if (headingMatch.test(ascend.nodeName)) {
 				return;
 			}
 		}
@@ -40,7 +40,7 @@ export default (document = window.document, tag = 'x-h') => {
 	).reduce(
 		(nodes, node) => nodes.concat.apply(
 			nodes,
-			headingTag.test(node) ? node : // eslint-disable-line no-nested-ternary
+			headingMatch.test(node) ? node : // eslint-disable-line no-nested-ternary
 			node.getElementsByTagName ? node.getElementsByTagName(tag) : []
 		),
 		[]
