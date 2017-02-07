@@ -53,7 +53,7 @@ The default `<x-h>` element is used to prevent stomping on the native namespace.
 Install [hfill] to your project.
 
 ```sh
-npm install jonathantneal/hfill
+npm install hfill
 ```
 
 Import [hfill] as a resource.
