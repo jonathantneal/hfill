@@ -1,76 +1,59 @@
 {
   "name": "hfill",
-  "version": "1.0.0",
-  "description": "Use contextual headings in HTML",
+  "version": "2.0.0",
+  "description": "A speculative polyfill to use the h element in HTML",
   "author": "Jonathan Neal <jonathantneal@hotmail.com>",
   "license": "CC0-1.0",
   "repository": "jonathantneal/hfill",
   "homepage": "https://github.com/jonathantneal/hfill#readme",
   "bugs": "https://github.com/jonathantneal/hfill/issues",
-  "main": "index.es5.js",
-  "module": "index.js",
+  "module": "hfill.js",
+  "main": "hfill.es5.js",
   "files": [
-    "index.js",
-    "index.es5.js",
-    "index.es5.js.map",
-    "src"
+    "hfill.js",
+    "hfill.es5.js",
+    "hfill.es5.js.map"
   ],
   "scripts": {
     "clean": "git clean -X -d -f",
-    "pre-commit": "echo 'Running pre-commit checks...' && exit 0",
-    "publish:js": "rollup --config .rollup.js",
-    "prepublish": "npm test && npm run publish:js",
-    "test": "npm run test:ec && npm run test:js",
-    "test:ec": "echint",
-    "test:js": "eslint index.js src/*.js --cache --ignore-pattern .gitignore"
+    "prepublish": "npm test && rollup --config .rollup.js",
+    "test": "eslint hfill.js --cache --ignore-pattern .gitignore"
   },
   "engines": {
-    "node": ">=6.5.0"
+    "node": ">=4.0.0"
   },
-  "dependencies": {
-    "postcss": "^5.2.12"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "babel-preset-env": "^1.1.8",
-    "echint": "^4.0.1",
-    "echint-config-dev": "1.0.0",
-    "eslint": "^3.15.0",
-    "eslint-config-dev": "1.0.0",
+    "babel-preset-env": "^1.5.1",
+    "eslint": "^3.19.0",
+    "eslint-config-dev": "^2.0.0",
     "pre-commit": "^1.2.2",
-    "rollup": "^0.41.4",
+    "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.7.1",
-    "rollup-plugin-commonjs": "^7.0.0",
-    "rollup-plugin-node-resolve": "^2.0.0",
-    "rollup-plugin-uglify": "^1.0.1"
-  },
-  "browsers": [
-    "last 2 versions"
-  ],
-  "echint": {
-    "extends": "dev"
+    "rollup-plugin-uglify": "^2.0.1"
   },
   "eslintConfig": {
     "extends": "dev"
   },
-  "pre-commit": [
-    "pre-commit",
-    "test"
-  ],
   "keywords": [
     "html",
     "contextual",
-    "outline",
-    "aware",
-    "custom",
-    "h",
     "heading",
+    "element",
+    "h",
     "h1",
     "h2",
     "h3",
     "h4",
     "h5",
     "h6",
-    "h7",
-    "element"
+    "article",
+    "aside",
+    "nav",
+    "section",
+    "speculative",
+    "element",
+    "polyfill",
+    "ponyfill"
   ]
 }

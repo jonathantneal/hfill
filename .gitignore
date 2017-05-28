@@ -1,10 +1,9 @@
 node_modules
-
 .*
+!.appveyor.yml
 !.editorconfig
-!.config.js
+!.gitignore
 !.rollup.js
-!.travis.js
+!.travis.yml
 *.log*
-
-index.es5.js*
+hfill.es5.js*
